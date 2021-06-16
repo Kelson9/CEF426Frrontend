@@ -4,6 +4,7 @@ import { ChefComponent } from './chef/chef.component';
 import { CustomerComponent } from './customer/customer.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { ManagerDetailsComponent } from './manager-details/manager-details.component';
 import { ManagerComponent } from './manager/manager.component';
 import { SignupComponent } from './signup/signup.component';
 import { SupplierComponent } from './supplier/supplier.component';
@@ -18,6 +19,8 @@ const routes: Routes = [
 {path:'customer', component:CustomerComponent},
 {path:'supplier', component:SupplierComponent},
 {path:'chef', component:ChefComponent},
+{path:'dish/:id', component:ManagerDetailsComponent},
+
 {path:'', redirectTo:'/home',pathMatch:'full'},
 
 ];

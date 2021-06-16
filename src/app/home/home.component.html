@@ -1,10 +1,17 @@
 <div class="container-fluid">
     <div class="first">  
 <div class="navbar">
-<a routerLink="/home" routerLinkActive="true" class="active">Home</a>
-<a routerLink="/about" routerLinkActive="true">About us</a>
-<a routerLink="/signup" routerLinkActive="true">Signup</a>
-<a routerLink="/login" routerLinkActive="true">Login</a>
+    <a href="#" class="navbar-brand">FETRestau</a>
+        <a href="/home" class="nav-link" routerLink="/home">Home </a>
+        <a href="/manager" class="nav-link" routerLink="/manager"  *ngIf="showAdminBoard">Manager Board</a>
+        <a href="/waiter" class="nav-link" routerLink="mod" *ngIf="showModeratorBoard">waiter Board</a>
+        <a href="/customer" class="nav-link" *ngIf="isLoggedIn" routerLink="/customer">User</a>
+        <a href="/supplier" class="nav-link" *ngIf="showAdminBoard" routerLink="/supplier">supplier</a>
+        <a href="/chef" class="nav-link" *ngIf="showAdminBoard" routerLink="/chef">chef</a>
+        <a href="/signup" class="nav-link" routerLink="/signup"  *ngIf="!isLoggedIn">Sign Up</a>
+        <a href="/login" class="nav-link" routerLink="/login" *ngIf="!isLoggedIn">Login</a>
+        <h5  *ngIf="isLoggedIn">Welcome {{ username }}</h5>
+        <a href class="nav-link" (click)="logout()" *ngIf="isLoggedIn">LogOut</a>
 </div>
 <h3 id="up"> WE ARE TOPNOTCH</h3>
 <h5 id="down">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt, ullam molestias? Aut,<br> animi corrupti! Saepe necessitatibus deleniti vero sequi voluptatem tenetur, ut eveniet inventore eius, facilis vel dicta commodi perspiciatis! </h5>

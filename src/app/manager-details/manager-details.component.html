@@ -1,0 +1,18 @@
+<div class="navbar">
+    <a routerLink="/home" routerLinkActive="true" >Home</a>
+    <a routerLink="/about" routerLinkActive="true">About us</a>
+    <a routerLink="/signup" routerLinkActive="true">Signup</a>
+    <a routerLink="/login" routerLinkActive="true" class="active">Login</a>
+    </div>
+
+<div class="container" *ngIf="Dish">
+  <div class="card" style="width: 18rem;">
+    <img src="../../assets/ERU-et-water-fufu.jpg" class="card-img-top">
+    <div class="card-body">
+      <h5 class="card-title">{{Dish.name}}</h5>
+      <p class="card-text">{{Dish.price}}</p>
+      <a href="#" class="btn btn-primary">{{Dish.quantity}}</a>
+    </div>
+  </div>
+</div>
+

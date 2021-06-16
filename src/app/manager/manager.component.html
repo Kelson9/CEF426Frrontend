@@ -1,185 +1,69 @@
 <div class="container-fluid">
-    <div class="first">  
+<div class="first">  
 <div class="navbar">
 <a routerLink="/home" routerLinkActive="true" class="active">Home</a>
 <a routerLink="/about" routerLinkActive="true">About us</a>
 <a routerLink="/signup" routerLinkActive="true">Signup</a>
 <a routerLink="/login" routerLinkActive="true">Login</a>
 </div>
-
 <h2 style="text-align: center;">Welcome Manager</h2>
-
-<div class="wrapper">
+<div class="wrapper" >
     <div class="sidebar">
      <a href="" routerLink="/home">Home</a><br><br>
      <a href="">Update Info</a><br><br>
-     <a href="">View Inventories</a><br><br>
+     <button>Create Dish</button><br><br>
+
+     <div class="container" *ngIf="currentUser; else loggedOut">
+      <header class="jumbotron">
+        <h3>
+          <strong>{{ currentUser.username }}</strong> Profile
+        </h3>
+      </header>
+      <p>
+        <strong>Token:</strong>
+        {{ currentUser.accessToken.substring(0, 20) }} ...
+        {{ currentUser.accessToken.substr(currentUser.accessToken.length - 20) }}
+      </p>
+      <p>
+        <strong>Email:</strong>
+        {{ currentUser.email }}
+      </p>
+      <strong>Roles:</strong>
+      <ul>
+        <li *ngFor="let role of currentUser.roles">
+          {{ role }}
+        </li>
+      </ul>
+    </div>
+    
+    <ng-template #loggedOut>
+      Please login.
+    </ng-template>
     </div>
 <div class="main">
-
     <table>
         <tr>
-          <th>Weekly sales</th>
-          <th>Cust Name</th>
+          <th>Id</th>
           <th>Dish</th>
           <th>Price/CFA</th>
+          <th>Quantity</th>
+          <th>Image</th>
           <th>Action</th>
         </tr>
-        <tr>
-          <td>1</td>
-          <td>kelson</td>
-          <td>Eru</td>
-          <td>1000</td>
+        <tr  *ngFor="let dish of Dish">
+          <td>{{dish.id}}</td>
+          <td>{{dish.name}}</td>
+          <td>{{dish.price}}</td>
+          <td>{{dish.quantity}}</td>
+          <td> <img *ngIf="dish.pxtUri" [src]="'https://simple-product-catalog.herokuapp.com/api/downloadFile/'+dish.pxtUri">
+          </td>
           <td>
-            <button class="btn btn-primary">Delete</button>
-            <button class="btn btn-danger">View</button>
+            <button class="btn btn-primary" (click)="deleteDish(dish.id)">Delete</button>
+            <button class="btn btn-danger" (click)="details(dish.id)" >View</button>
             <button  class="btn btn-warning">Update</button>
           </td>
         </tr>
-        <tr>
-            <td>2</td>
-            <td>kcee</td>
-            <td>Rice</td>
-            <td>800</td>
-            <td>
-                <button class="btn btn-primary">Delete</button>
-                <button class="btn btn-danger">View</button>
-                <button  class="btn btn-warning">Update</button>
-  
-            </td>
-  
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Obi</td>
-            <td>Fish</td>
-            <td>2000</td>
-            <td>
-                <button class="btn btn-primary">Delete</button>
-                <button class="btn btn-danger">View</button>
-                <button  class="btn btn-warning">Update</button>
-  
-            </td>
-  
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>Herbert</td>
-            <td>Eru</td>
-            <td>1100</td>
-            <td>
-                <button class="btn btn-primary">Delete</button>
-                <button class="btn btn-danger">View</button>
-                <button  class="btn btn-warning">Update</button>
-  
-            </td>
-  
-          </tr>
-          <tr>
-            <td>5</td>
-            <td>Teddy</td>
-            <td>Yam</td>
-            <td>2000</td>
-            <td>
-                <button class="btn btn-primary">Delete</button>
-                <button class="btn btn-danger">View</button>
-                <button  class="btn btn-warning">Update</button>
-  
-            </td>
-  
-          </tr>
-          <tr>
-            <td>6</td>
-            <td>kelson</td>
-            <td>Ndole</td>
-            <td>900</td>
-            <td>
-                <button class="btn btn-primary">Delete</button>
-                <button class="btn btn-danger">View</button>
-                <button  class="btn btn-warning">Update</button>
-  
-            </td>
-  
-          </tr>
-          <tr>
-            <td>7</td>
-            <td>Oscar</td>
-            <td>Achu</td>
-            <td>1500</td>
-            <td>
-                <button class="btn btn-primary">Delete</button>
-                <button class="btn btn-danger">View</button>
-                <button  class="btn btn-warning">Update</button>
-  
-            </td>
-  
-          </tr>
-          <tr>
-            <td>8</td>
-            <td>Brandon</td>
-            <td>Cornchaff</td>
-            <td>1300</td>
-            <td>
-                <button class="btn btn-primary">Delete</button>
-                <button class="btn btn-danger">View</button>
-                <button  class="btn btn-warning">Update</button>
-  
-            </td>
-  
-          </tr>
-          <tr>
-            <td>9</td>
-            <td>kelson</td>
-            <td>Eru</td>
-            <td>300</td>
-            <td>
-                <button class="btn btn-primary">Delete</button>
-                <button class="btn btn-danger">View</button>
-                <button  class="btn btn-warning">Update</button>
-  
-            </td>
-  
-          </tr>
-          <tr>
-            <td>10</td>
-            <td>kelson</td>
-            <td>Eru</td>
-            <td>300</td>
-            <td>
-                <button class="btn btn-primary">Delete</button>
-                <button class="btn btn-danger">View</button>
-                <button  class="btn btn-warning">Update</button>
-            </td>
-  
-          </tr>
-          <tr>
-            <td>11</td>
-            <td>kelson</td>
-            <td>Eru</td>
-            <td>300</td>
-            <td>
-                <button class="btn btn-primary">Delete</button>
-                <button class="btn btn-danger">View</button>
-                <button  class="btn btn-warning">Update</button>
-  
-            </td>
-  
-          </tr>
-          <tr>
-            <td>12</td>
-            <td>kelson</td>
-            <td>Eru</td>
-            <td>300</td>
-            <td>
-              <button class="btn btn-primary">Delete</button>
-              <button class="btn btn-danger">View</button>
-              <button  class="btn btn-warning">Update</button>
-  
-            </td>
-  
-          </tr>
-          
-
       </table></div>
-
+</div>
+</div>
 </div>

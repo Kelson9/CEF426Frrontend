@@ -13,6 +13,10 @@ import { WaiterComponent } from './waiter/waiter.component';
 import { SupplierComponent } from './supplier/supplier.component';
 import { ApiService } from './api.service';
 import { AuthService } from './auth.service';
+import {HttpClientModule } from '@angular/common/http';
+import { ManagerDetailsComponent } from './manager-details/manager-details.component';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -25,11 +29,16 @@ import { AuthService } from './auth.service';
     CustomerComponent,
     ChefComponent,
     WaiterComponent,
-    SupplierComponent
+    SupplierComponent,
+    ManagerDetailsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+
+
   ],
   providers: [ApiService,AuthService],
   bootstrap: [AppComponent]
