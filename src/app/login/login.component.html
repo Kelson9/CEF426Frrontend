@@ -1,0 +1,36 @@
+<div class="navbar">
+    <a routerLink="/home" routerLinkActive="true" >Home</a>
+    <a routerLink="/about" routerLinkActive="true">About us</a>
+    <a routerLink="/signup" routerLinkActive="true">Signup</a>
+    <a routerLink="/login" routerLinkActive="true" class="active">Login</a>
+    </div>
+  <body>
+    <div class="container" id="container">
+      <div class="form-container sign-in-container">
+        <form action="">
+          <h1>Sign In</h1>
+          <div class="social-container">
+            <a routerLink="/manager" class="social"><i class="fab fa-facebook-f"></i>M</a>
+            <a routerLink="/chef" class="social"><i class="fab fa-google-plus-g"></i>C</a>
+            <a routerLink="/waiter" class="social"><i class="fab fa-linkedin-in"></i>W</a>
+            <a routerLink="/supplier" class="social"><i class="fab fa-linkedin-in"></i>S</a>
+          </div>
+          <span>or use your account</span>
+
+          <input type="email" placeholder="Email" />
+          <input type="password" placeholder="Password" />
+          <a href="#">Forgot your password?</a>
+          <button>Sign In</button>
+        </form>
+      </div>
+      <div class="overlay-container">
+        <div class="overlay">
+          <div class="overlay-panel overlay-right">
+            <h1>Bringing you the best!</h1>
+            <p>We are TopNotch</p>
+            <button class="ghost" id="signUp" routerLink="/signup">Sign Up</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
